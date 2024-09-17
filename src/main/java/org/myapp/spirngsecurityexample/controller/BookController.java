@@ -5,6 +5,7 @@ import org.myapp.spirngsecurityexample.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +19,11 @@ public class BookController {
 
     @GetMapping(value = "")
     public ResponseEntity<List<BookEntity>> getAllBooks(){
+        return ResponseEntity.ok(bookService.getAllBooks());
+    }
+
+    @PostMapping(value = "")
+    public ResponseEntity<List<BookEntity>> getAllBooksPost(){
         return ResponseEntity.ok(bookService.getAllBooks());
     }
 }
